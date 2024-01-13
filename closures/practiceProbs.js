@@ -29,6 +29,7 @@ function addSubtract() {
 
 let [add, subtract] = addSubtract();
 
-add(1);
-add(42);
-subtract(39);
+// add(1);
+// add(42);
+// subtract(39);
+
