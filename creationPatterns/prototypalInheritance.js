@@ -27,6 +27,7 @@ console.log(getDefiningObject(qux, 'e'));             // => null
 */
 
 // shallow copy
+/*
 function shallowCopy(object) {
   let newObj = Object.create(Object.getPrototypeOf(object));
   Object.entries(object).forEach(([key, value]) => {
@@ -53,3 +54,41 @@ baz.say();                // => c is 3
 baz.hasOwnProperty('a');  // false
 baz.hasOwnProperty('b');  // false
 baz.hasOwnProperty('c');  // true
+
+*/
+
+// extend destination
+function extend(...objects) {
+  let destination = new Object.create(objects[0]);
+  for (object of objects) {
+    
+  }
+}
+
+let foo = {
+  a: 0,
+  b: {
+    x: 1,
+    y: 2,
+  },
+};
+
+let joe = {
+  name: 'Joe'
+};
+
+let funcs = {
+  sayHello() {
+    console.log('Hello, ' + this.name);
+  },
+
+  sayGoodBye() {
+    console.log('Goodbye, ' + this.name);
+  },
+};
+
+let object = extend({}, foo, joe, funcs);
+
+console.log(object.b.x);          // => 1
+object.sayHello();                // => Hello, Joe
+
